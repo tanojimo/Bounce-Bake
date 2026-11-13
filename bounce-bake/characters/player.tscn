@@ -8,7 +8,7 @@ friction = 0.1
 bounce = 0.9
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxb8f"]
-radius = 64.65115
+radius = 15.3540125
 
 [node name="Player" type="RigidBody2D" unique_id=1882075591 groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_io8aj")
@@ -25,6 +25,9 @@ texture_filter = 1
 texture = ExtResource("2_3eadt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10439974]
-position = Vector2(9.536743e-07, -2)
+position = Vector2(1.92593e-34, 1.1920929e-07)
 scale = Vector2(0.6512956, 0.6512956)
 shape = SubResource("CircleShape2D_gxb8f")
+
+[node name="gunPoint" type="Marker2D" parent="." unique_id=1801115059]
+position = Vector2(10, -8)
