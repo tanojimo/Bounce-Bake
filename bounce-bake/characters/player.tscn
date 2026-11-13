@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bp3g5pkvvsxbe"]
+
+[ext_resource type="Script" uid="uid://4j7e3af86c66" path="res://scripts/player.gd" id="1_3eadt"]
+[ext_resource type="Texture2D" uid="uid://b6tj284mhpsek" path="res://assets/kalaball1.png" id="1_dnjla"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_io8aj"]
+friction = 0.1
+bounce = 0.9
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxb8f"]
+radius = 51.351727
+
+[node name="Player" type="RigidBody2D" unique_id=1882075591 groups=["player"]]
+physics_material_override = SubResource("PhysicsMaterial_io8aj")
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 1.5
+angular_damp = 1.0
+script = ExtResource("1_3eadt")
+multiplier = 100
+maxPull = 250
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=697467859]
+texture_filter = 1
+scale = Vector2(4.703125, 4.703125)
+texture = ExtResource("1_dnjla")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10439974]
+shape = SubResource("CircleShape2D_gxb8f")

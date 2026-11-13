@@ -1,3 +1,40 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://dj4sowsalgwiu"]
 
 [node name="Main" type="Node2D" unique_id=1423258534]
+=======
+[gd_scene format=4 uid="uid://dj4sowsalgwiu"]
+
+[ext_resource type="Texture2D" uid="uid://bjq2seb3o8q36" path="res://icon.svg" id="1_2262g"]
+[ext_resource type="PackedScene" uid="uid://bp3g5pkvvsxbe" path="res://characters/player.tscn" id="2_wdj6m"]
+[ext_resource type="PackedScene" uid="uid://clrbrxw33jleo" path="res://characters/enemy.tscn" id="3_l8qe7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wdj6m"]
+texture = ExtResource("1_2262g")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_7du4u"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_wdj6m")
+
+[node name="Main" type="Node2D" unique_id=1423258534]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1449957284]
+tile_map_data = PackedByteArray("AAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQAAAAAAAAAKAAAAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAD//wMAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAADAAUAAQAAAAAAAAACAAUAAQAAAAAAAAABAAUAAQAAAAAAAAAAAAUAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_7du4u")
+
+[node name="Player" parent="." unique_id=1882075591 instance=ExtResource("2_wdj6m")]
+position = Vector2(531, 268)
+lock_rotation = false
+multiplier = 500
+maxPull = 800
+
+[node name="Enemy" parent="." unique_id=90420138 instance=ExtResource("3_l8qe7")]
+position = Vector2(973, 182)
+
+[node name="Enemy2" parent="." unique_id=1073761641 instance=ExtResource("3_l8qe7")]
+position = Vector2(950, 479)
+>>>>>>> Stashed changes
