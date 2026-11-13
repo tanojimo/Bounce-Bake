@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://dj4sowsalgwiu"]
+[gd_scene format=4 uid="uid://dj4sowsalgwiu"]
+
+[ext_resource type="Texture2D" uid="uid://bjq2seb3o8q36" path="res://icon.svg" id="1_2262g"]
+[ext_resource type="PackedScene" uid="uid://bp3g5pkvvsxbe" path="res://characters/player.tscn" id="2_wdj6m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wdj6m"]
+texture = ExtResource("1_2262g")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_7du4u"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_wdj6m")
 
 [node name="Main" type="Node2D" unique_id=1423258534]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1449957284]
+tile_map_data = PackedByteArray("AAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQAAAAAAAAAKAAAAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAD//wMAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAADAAUAAQAAAAAAAAACAAUAAQAAAAAAAAABAAUAAQAAAAAAAAAAAAUAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_7du4u")
+
+[node name="RigidBody2D" parent="." unique_id=1882075591 instance=ExtResource("2_wdj6m")]
+position = Vector2(531, 268)
