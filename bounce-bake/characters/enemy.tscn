@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://clrbrxw33jleo"]
 
 [ext_resource type="Script" uid="uid://b44dunemqo5r3" path="res://characters/enemy.gd" id="1_nhupr"]
+=======
+[gd_scene format=3 uid="uid://ban87cb83dt0"]
+
+[ext_resource type="Script" path="res://characters/enemy.gd" id="1_nhupr"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://b6tj284mhpsek" path="res://assets/kalaball1.png" id="1_wa0eo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhupr"]
