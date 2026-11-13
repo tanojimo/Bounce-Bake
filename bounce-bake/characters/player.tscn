@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bp3g5pkvvsxbe"]
 
 [ext_resource type="Script" uid="uid://4j7e3af86c66" path="res://scripts/player.gd" id="1_3eadt"]
-[ext_resource type="Texture2D" uid="uid://b6tj284mhpsek" path="res://assets/kalaball1.png" id="1_dnjla"]
+[ext_resource type="Texture2D" uid="uid://4s4gvskum1s1" path="res://assets/player.png" id="2_3eadt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_io8aj"]
 friction = 0.1
 bounce = 0.9
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxb8f"]
-radius = 55.0
+radius = 64.65115
 
 [node name="Player" type="RigidBody2D" unique_id=1882075591 groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_io8aj")
@@ -22,10 +22,9 @@ maxPull = 250
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=697467859]
 texture_filter = 1
-scale = Vector2(3.0631247, 3.0631247)
-texture = ExtResource("1_dnjla")
+texture = ExtResource("2_3eadt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10439974]
-position = Vector2(-2, 2)
+position = Vector2(9.536743e-07, -2)
 scale = Vector2(0.6512956, 0.6512956)
 shape = SubResource("CircleShape2D_gxb8f")

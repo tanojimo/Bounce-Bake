@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2ur1cs0wabar"
-path="res://.godot/imported/laalsqr.png-5f9ff49badf017c60c14bccd926c9dcb.ctex"
+uid="uid://4s4gvskum1s1"
+path="res://.godot/imported/player.png-be2216fcaabb5c62aa2466cd9a5726a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/laalsqr.png"
-dest_files=["res://.godot/imported/laalsqr.png-5f9ff49badf017c60c14bccd926c9dcb.ctex"]
+source_file="res://assets/player.png"
+dest_files=["res://.godot/imported/player.png-be2216fcaabb5c62aa2466cd9a5726a8.ctex"]
 
 [params]
 
