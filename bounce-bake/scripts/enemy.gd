@@ -6,6 +6,10 @@ var deathEffect = preload("res://items/deathEffect.tscn")
 
 @onready var gunPoint = $gunPoint
 
+func die():
+	get_tree().current_scene.enemy_died()
+	queue_free()
+
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
@@ -18,7 +22,9 @@ func _physics_process(delta: float) -> void:
 			get_tree().current_scene.add_child(effect)
 			effect.global_position = global_position
 			enemy_death.play()
+			die()
 			queue_free()
+			
 			if collider.is_in_group("bullet"):
 				collider.queue_free()
 

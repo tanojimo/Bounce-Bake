@@ -1,5 +1,6 @@
-[gd_scene format=4 uid="uid://be4etjpnk7ye8"]
+[gd_scene format=4 uid="uid://3bk4tqg2mwfe"]
 
+[ext_resource type="Script" uid="uid://bvlsmmywi1wpd" path="res://levels/level_1.gd" id="1_omn1t"]
 [ext_resource type="Texture2D" uid="uid://iy3a8v1inhb1" path="res://assets/Grasslands-tiles.png" id="1_t8alf"]
 [ext_resource type="Texture2D" uid="uid://vxn25spmujm3" path="res://assets/tilemap.png" id="2_6evee"]
 [ext_resource type="Texture2D" uid="uid://dx4r6ge57aal0" path="res://assets/Tileset_Interior Wood_Gnomenlied.png" id="3_ylqki"]
@@ -9,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bak3pvp5i4oar" path="res://assets/hd-0009.png" id="7_ylqki"]
 [ext_resource type="Texture2D" uid="uid://c6874k8tglhq2" path="res://assets/hd8.png" id="8_o26uq"]
 [ext_resource type="AudioStream" uid="uid://d3swvmvoayoxh" path="res://assets/sfx/cake bounce.mp3" id="9_o26uq"]
+[ext_resource type="PackedScene" uid="uid://c81ovkfqde1tt" path="res://menus/UI.tscn" id="10_lf3p4"]
+[ext_resource type="Script" uid="uid://cjs4wkyrx140a" path="res://menus/level1ui.gd" id="11_yydhl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dns4"]
 texture = ExtResource("1_t8alf")
@@ -442,6 +445,7 @@ sources/0 = SubResource("TileSetAtlasSource_qec0h")
 sources/1 = SubResource("TileSetAtlasSource_waeec")
 
 [node name="Level1" type="Node2D" unique_id=891091115]
+script = ExtResource("1_omn1t")
 
 [node name="grass" type="TileMapLayer" parent="." unique_id=1870927852]
 position = Vector2(33, 0)
@@ -457,6 +461,9 @@ tile_set = SubResource("TileSet_wdpdn")
 tile_map_data = PackedByteArray("AAA6AAEABAABAAAAAAA6AAIABAABAAEAAAA6AAUABAAAAAAAADA6AAYABAAAAAAAADA6AAcABAAAAAAAADA6AAgABAAAAAAAADA6AAkABAAAAAAAADBdAAIABAAAAAAAADBdAAMABAAAAAAAADBdAAEABAAAAAAAADB8AAQABAAAAAAAAGB2AAQABAAAAAAAAGBwAAQABAAAAAAAAGBqAAQABAAAAAAAAGA=")
 tile_set = SubResource("TileSet_6evee")
 
+[node name="Ui" parent="bars" unique_id=1526072245 instance=ExtResource("10_lf3p4")]
+script = ExtResource("11_yydhl")
+
 [node name="Enemy" parent="." unique_id=90420138 instance=ExtResource("5_qec0h")]
 position = Vector2(333, 270)
 
@@ -468,12 +475,9 @@ position = Vector2(563, 78)
 
 [node name="Player" parent="." unique_id=1882075591 instance=ExtResource("6_waeec")]
 position = Vector2(148, 161)
-isDragging = null
-dragStartPos = null
 multiplier = 300
 minPull = 50
 maxPull = 800
-push = null
 
 [node name="Cake" type="TileMapLayer" parent="." unique_id=969032016 groups=["wall"]]
 tile_map_data = PackedByteArray("AAADAAEAAQAAAAAAAFAFAAEAAQAAAAAAAFAHAAEAAQAAAAAAAFAJAAEAAQAAAAAAAFALAAEAAQAAAAAAAFANAAEAAQAAAAAAAFAPAAEAAQAAAAAAAFARAAEAAQAAAAAAAFATAAIAAQAAAAAAADATAAQAAQAAAAAAADATAAYAAQAAAAAAADATAAgAAQAAAAAAADASAAkAAQAAAAAAAGAQAAkAAQAAAAAAAGAOAAkAAQAAAAAAAGAMAAkAAQAAAAAAAGAKAAkAAQAAAAAAAGAIAAkAAQAAAAAAAGAGAAkAAQAAAAAAAGAEAAkAAQAAAAAAAGACAAgAAQAAAAAAAAACAAYAAQAAAAAAAAACAAQAAQAAAAAAAAACAAIAAQAAAAAAAAACAAcAAAAAAAAAAAACAAUAAAAAAAAAAAACAAMAAAAAAAAAAAAEAAEAAAAAAAAAAFAGAAEAAAAAAAAAAFAIAAEAAAAAAAAAAFAKAAEAAAAAAAAAAFAMAAEAAAAAAAAAAFAOAAEAAAAAAAAAAFAQAAEAAAAAAAAAAFASAAEAAAAAAAAAAFATAAMAAAAAAAAAADATAAUAAAAAAAAAADATAAcAAAAAAAAAADARAAkAAAAAAAAAAGAPAAkAAAAAAAAAAGANAAkAAAAAAAAAAGALAAkAAAAAAAAAAGAJAAkAAAAAAAAAAGAHAAkAAAAAAAAAAGAFAAkAAAAAAAAAAGADAAkAAAAAAAAAAGA=")

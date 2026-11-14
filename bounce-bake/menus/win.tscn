@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://da3xoy1flcg0e"]
 
-[ext_resource type="Script" uid="uid://bmelsdx1wxsn7" path="res://menus/button_manager.gd" id="1_tdq3a"]
 [ext_resource type="FontFile" uid="uid://r0xlm71ucpoq" path="res://assets/Iceberg-Regular.ttf" id="2_3vrrn"]
 [ext_resource type="Script" uid="uid://docxr3hei1vyl" path="res://scripts/startButton.gd" id="3_12xms"]
 
@@ -21,7 +20,6 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
-script = ExtResource("1_tdq3a")
 
 [node name="ColorRect" type="ColorRect" parent="buttonManager" unique_id=1608463227]
 layout_mode = 0
@@ -33,30 +31,16 @@ color = Color(0, 0, 0, 0.40392157)
 
 [node name="level1" type="Button" parent="buttonManager" unique_id=1697542210]
 layout_mode = 0
-offset_left = 289.0
-offset_top = 160.0
-offset_right = 410.0
-offset_bottom = 208.0
+offset_left = 292.0
+offset_top = 177.0
+offset_right = 413.0
+offset_bottom = 225.0
 theme_override_fonts/font = ExtResource("2_3vrrn")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dt4f0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yifi3")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jaigi")
 text = "Next"
-script = ExtResource("3_12xms")
-
-[node name="level2" type="Button" parent="buttonManager" unique_id=247364794]
-layout_mode = 0
-offset_left = 288.0
-offset_top = 210.0
-offset_right = 409.0
-offset_bottom = 258.0
-theme_override_fonts/font = ExtResource("2_3vrrn")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dt4f0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yifi3")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_jaigi")
-text = "Quit"
 script = ExtResource("3_12xms")
 
 [node name="Label" type="Label" parent="buttonManager" unique_id=2091005216]
@@ -73,7 +57,3 @@ text = "You Won"
 [connection signal="button_up" from="buttonManager/level1" to="buttonManager/level1" method="_on_button_up"]
 [connection signal="mouse_entered" from="buttonManager/level1" to="buttonManager/level1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="buttonManager/level1" to="buttonManager/level1" method="_on_mouse_exited"]
-[connection signal="button_down" from="buttonManager/level2" to="buttonManager/level2" method="_on_button_down"]
-[connection signal="button_up" from="buttonManager/level2" to="buttonManager/level2" method="_on_button_up"]
-[connection signal="mouse_entered" from="buttonManager/level2" to="buttonManager/level2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="buttonManager/level2" to="buttonManager/level2" method="_on_mouse_exited"]

@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bag3g2h6te7tr"]
 
+[ext_resource type="Script" uid="uid://crftiocedtkss" path="res://levels/level_2.gd" id="1_55gdq"]
 [ext_resource type="Texture2D" uid="uid://iy3a8v1inhb1" path="res://assets/Grasslands-tiles.png" id="1_e8p81"]
 [ext_resource type="Texture2D" uid="uid://vxn25spmujm3" path="res://assets/tilemap.png" id="2_55gdq"]
 [ext_resource type="Texture2D" uid="uid://dx4r6ge57aal0" path="res://assets/Tileset_Interior Wood_Gnomenlied.png" id="3_crte6"]
@@ -7,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bak3pvp5i4oar" path="res://assets/hd-0009.png" id="5_fjysh"]
 [ext_resource type="Texture2D" uid="uid://c6874k8tglhq2" path="res://assets/hd8.png" id="6_bcewn"]
 [ext_resource type="PackedScene" uid="uid://clrbrxw33jleo" path="res://characters/enemy.tscn" id="7_6mfmt"]
+[ext_resource type="PackedScene" uid="uid://c81ovkfqde1tt" path="res://menus/UI.tscn" id="8_hq01p"]
 [ext_resource type="PackedScene" uid="uid://bp3g5pkvvsxbe" path="res://characters/player.tscn" id="8_qegch"]
+[ext_resource type="Script" uid="uid://cjs4wkyrx140a" path="res://menus/level1ui.gd" id="9_fjysh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8p81"]
 texture = ExtResource("1_e8p81")
@@ -441,6 +444,7 @@ sources/0 = SubResource("TileSetAtlasSource_6mfmt")
 sources/1 = SubResource("TileSetAtlasSource_qegch")
 
 [node name="Level2" type="Node2D" unique_id=758732670]
+script = ExtResource("1_55gdq")
 
 [node name="grass" type="TileMapLayer" parent="." unique_id=1785571812]
 position = Vector2(33, 0)
@@ -458,6 +462,9 @@ tile_set = SubResource("TileSet_75exu")
 [node name="Cake" type="TileMapLayer" parent="." unique_id=819658682]
 tile_map_data = PackedByteArray("AAADAAEAAQAAAAAAAFAFAAEAAQAAAAAAAFAHAAEAAQAAAAAAAFAJAAEAAQAAAAAAAFALAAEAAQAAAAAAAFANAAEAAQAAAAAAAFAPAAEAAQAAAAAAAFARAAEAAQAAAAAAAFATAAIAAQAAAAAAADATAAQAAQAAAAAAADATAAYAAQAAAAAAADATAAgAAQAAAAAAADASAAkAAQAAAAAAAGAQAAkAAQAAAAAAAGAOAAkAAQAAAAAAAGAMAAkAAQAAAAAAAGAKAAkAAQAAAAAAAGAIAAkAAQAAAAAAAGAGAAkAAQAAAAAAAGAEAAkAAQAAAAAAAGACAAgAAQAAAAAAAAACAAYAAQAAAAAAAAACAAQAAQAAAAAAAAACAAIAAQAAAAAAAAACAAcAAAAAAAAAAAACAAUAAAAAAAAAAAACAAMAAAAAAAAAAAAEAAEAAAAAAAAAAFAGAAEAAAAAAAAAAFAIAAEAAAAAAAAAAFAKAAEAAAAAAAAAAFAMAAEAAAAAAAAAAFAOAAEAAAAAAAAAAFAQAAEAAAAAAAAAAFASAAEAAAAAAAAAAFATAAMAAAAAAAAAADATAAUAAAAAAAAAADATAAcAAAAAAAAAADARAAkAAAAAAAAAAGAPAAkAAAAAAAAAAGANAAkAAAAAAAAAAGALAAkAAAAAAAAAAGAJAAkAAAAAAAAAAGAHAAkAAAAAAAAAAGAFAAkAAAAAAAAAAGADAAkAAAAAAAAAAGA=")
 tile_set = SubResource("TileSet_5h11f")
+
+[node name="Ui" parent="." unique_id=1419258921 instance=ExtResource("8_hq01p")]
+script = ExtResource("9_fjysh")
 
 [node name="Enemy" parent="." unique_id=90420138 instance=ExtResource("7_6mfmt")]
 position = Vector2(355, 135)

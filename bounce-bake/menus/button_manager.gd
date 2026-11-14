@@ -7,7 +7,7 @@ func _ready() -> void:
 	$level2.pressed.connect(change_scene.bind("res://levels/level2.tscn"))
 	$level3.pressed.connect(change_scene.bind("res://levels/level3.tscn"))
 	$level4.pressed.connect(change_scene.bind("res://levels/level4.tscn"))
-	$level5.pressed.connect(change_scene.bind("res://levels/level5.tscn"))
+	$level5.pressed.connect(change_scene.bind("res://levels/level.tscn"))
 
 func change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)

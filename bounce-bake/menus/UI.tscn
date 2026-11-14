@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c81ovkfqde1tt"]
+
+[ext_resource type="FontFile" uid="uid://r0xlm71ucpoq" path="res://assets/Iceberg-Regular.ttf" id="1_jkpon"]
+[ext_resource type="Texture2D" uid="uid://4h68yekr4ar5" path="res://assets/White two sides arrow Black outline.png" id="2_mvbl3"]
+[ext_resource type="Texture2D" uid="uid://be6kjt7bsyabh" path="res://assets/bl.png" id="3_vbe65"]
+
+[node name="Control" type="Control" unique_id=1419258921]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=1439414233]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 40.0
+offset_right = 77.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("1_jkpon")
+theme_override_font_sizes/font_size = 25
+text = "x 3"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label" unique_id=1417093471]
+position = Vector2(-11.000001, 16.000004)
+scale = Vector2(0.07857145, 0.09166668)
+texture = ExtResource("2_mvbl3")
+
+[node name="Label2" type="Label" parent="." unique_id=1698116249]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 9.0
+offset_right = 77.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_jkpon")
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Label2" unique_id=139125189]
+position = Vector2(-11.000001, 14.999999)
+scale = Vector2(1.9249996, 1.9249996)
+texture = ExtResource("3_vbe65")
