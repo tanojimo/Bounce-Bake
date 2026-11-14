@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://3bk4tqg2mwfe"]
+[gd_scene format=4 uid="uid://be4etjpnk7ye8"]
 
 [ext_resource type="Texture2D" uid="uid://iy3a8v1inhb1" path="res://assets/Grasslands-tiles.png" id="1_t8alf"]
 [ext_resource type="Texture2D" uid="uid://vxn25spmujm3" path="res://assets/tilemap.png" id="2_6evee"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bp3g5pkvvsxbe" path="res://characters/player.tscn" id="6_waeec"]
 [ext_resource type="Texture2D" uid="uid://bak3pvp5i4oar" path="res://assets/hd-0009.png" id="7_ylqki"]
 [ext_resource type="Texture2D" uid="uid://c6874k8tglhq2" path="res://assets/hd8.png" id="8_o26uq"]
+[ext_resource type="AudioStream" uid="uid://d3swvmvoayoxh" path="res://assets/sfx/cake bounce.mp3" id="9_o26uq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dns4"]
 texture = ExtResource("1_t8alf")
@@ -467,10 +468,16 @@ position = Vector2(563, 78)
 
 [node name="Player" parent="." unique_id=1882075591 instance=ExtResource("6_waeec")]
 position = Vector2(148, 161)
+isDragging = null
+dragStartPos = null
 multiplier = 300
 minPull = 50
 maxPull = 800
+push = null
 
-[node name="Cake" type="TileMapLayer" parent="." unique_id=969032016]
+[node name="Cake" type="TileMapLayer" parent="." unique_id=969032016 groups=["wall"]]
 tile_map_data = PackedByteArray("AAADAAEAAQAAAAAAAFAFAAEAAQAAAAAAAFAHAAEAAQAAAAAAAFAJAAEAAQAAAAAAAFALAAEAAQAAAAAAAFANAAEAAQAAAAAAAFAPAAEAAQAAAAAAAFARAAEAAQAAAAAAAFATAAIAAQAAAAAAADATAAQAAQAAAAAAADATAAYAAQAAAAAAADATAAgAAQAAAAAAADASAAkAAQAAAAAAAGAQAAkAAQAAAAAAAGAOAAkAAQAAAAAAAGAMAAkAAQAAAAAAAGAKAAkAAQAAAAAAAGAIAAkAAQAAAAAAAGAGAAkAAQAAAAAAAGAEAAkAAQAAAAAAAGACAAgAAQAAAAAAAAACAAYAAQAAAAAAAAACAAQAAQAAAAAAAAACAAIAAQAAAAAAAAACAAcAAAAAAAAAAAACAAUAAAAAAAAAAAACAAMAAAAAAAAAAAAEAAEAAAAAAAAAAFAGAAEAAAAAAAAAAFAIAAEAAAAAAAAAAFAKAAEAAAAAAAAAAFAMAAEAAAAAAAAAAFAOAAEAAAAAAAAAAFAQAAEAAAAAAAAAAFASAAEAAAAAAAAAAFATAAMAAAAAAAAAADATAAUAAAAAAAAAADATAAcAAAAAAAAAADARAAkAAAAAAAAAAGAPAAkAAAAAAAAAAGANAAkAAAAAAAAAAGALAAkAAAAAAAAAAGAJAAkAAAAAAAAAAGAHAAkAAAAAAAAAAGAFAAkAAAAAAAAAAGADAAkAAAAAAAAAAGA=")
 tile_set = SubResource("TileSet_6dns4")
+
+[node name="bounce" type="AudioStreamPlayer2D" parent="Cake" unique_id=925069742]
+stream = ExtResource("9_o26uq")

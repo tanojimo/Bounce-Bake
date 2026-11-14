@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4j7e3af86c66" path="res://scripts/player.gd" id="1_3eadt"]
 [ext_resource type="Texture2D" uid="uid://4s4gvskum1s1" path="res://assets/player.png" id="2_3eadt"]
+[ext_resource type="AudioStream" uid="uid://4kl36ovuy8fe" path="res://assets/sfx/gunshot.mp3" id="3_tory2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_io8aj"]
 friction = 0.1
@@ -39,3 +40,6 @@ position = Vector2(10, -8)
 width = 2.0
 gradient = SubResource("Gradient_gxb8f")
 texture_mode = 2
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="." unique_id=2033842836]
+stream = ExtResource("3_tory2")

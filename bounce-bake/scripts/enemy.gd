@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var bulletScene = preload("res://items/bullet.tscn")
 var deathEffect = preload("res://items/deathEffect.tscn")
+@onready var enemy_death: AudioStreamPlayer2D = $"enemy death"
 
 @onready var gunPoint = $gunPoint
 
@@ -16,6 +17,7 @@ func _physics_process(delta: float) -> void:
 			var effect = deathEffect.instantiate()
 			get_tree().current_scene.add_child(effect)
 			effect.global_position = global_position
+			enemy_death.play()
 			queue_free()
 			if collider.is_in_group("bullet"):
 				collider.queue_free()

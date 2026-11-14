@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b44dunemqo5r3" path="res://scripts/enemy.gd" id="1_nhupr"]
 [ext_resource type="Texture2D" uid="uid://b2tlr4wflpvj2" path="res://assets/hd 07.png" id="2_nhupr"]
+[ext_resource type="AudioStream" uid="uid://bdfr0i0dr5va5" path="res://assets/sfx/enemy death maybe.mp3" id="3_1ohc2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhupr"]
 
@@ -23,5 +24,8 @@ autostart = true
 
 [node name="gunPoint" type="Marker2D" parent="." unique_id=403946873]
 position = Vector2(10, -8)
+
+[node name="enemy death" type="AudioStreamPlayer2D" parent="." unique_id=389333916]
+stream = ExtResource("3_1ohc2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,6 +4,10 @@ var bulletScene = preload("res://items/bullet.tscn")
 
 @onready var motionTrail: Line2D = $Line2D
 @onready var gunPoint = $gunPoint
+@onready var gunshot: AudioStreamPlayer2D = $gunshot
+@onready var enemy_death: AudioStreamPlayer2D = $"enemy death"
+@onready var bounce: AudioStreamPlayer2D = $"../Cake/bounce"
+
 
 @export var isDragging: bool = false
 @export var dragStartPos: Vector2
@@ -35,11 +39,13 @@ func _input(event: InputEvent) -> void:
 			get_tree().current_scene.add_child(bullet)
 			bullet.global_position = gunPoint.global_position
 			var direction = (gunPoint.global_position - get_global_mouse_position()).normalized()
-			
+			gunshot.play()
 			bullet.apply_central_impulse(direction * 500)
 
 func _ready() -> void:
-	pass # Replace with function body.
+	contact_monitor = true
+	max_contacts_reported = 4
+	body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
 	if linear_velocity.length() < 30:
@@ -63,3 +69,5 @@ func _process(delta: float) -> void:
 			motionTrail.clear_points()
 	else:
 		motionTrail.clear_points()
+func _on_body_entered(body: Node) -> void:
+	bounce.play()
