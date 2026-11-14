@@ -1,19 +1,22 @@
 [gd_scene format=3 uid="uid://bp3g5pkvvsxbe"]
 
 [ext_resource type="Script" uid="uid://4j7e3af86c66" path="res://scripts/player.gd" id="1_3eadt"]
-[ext_resource type="Texture2D" uid="uid://b6tj284mhpsek" path="res://assets/kalaball1.png" id="1_dnjla"]
+[ext_resource type="Texture2D" uid="uid://4s4gvskum1s1" path="res://assets/player.png" id="2_3eadt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_io8aj"]
 friction = 0.1
 bounce = 0.9
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxb8f"]
-radius = 55.0
+radius = 15.3540125
+
+[sub_resource type="Gradient" id="Gradient_gxb8f"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.22745098)
 
 [node name="Player" type="RigidBody2D" unique_id=1882075591 groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_io8aj")
 gravity_scale = 0.0
-lock_rotation = true
+continuous_cd = 1
 linear_damp = 1.5
 angular_damp = 1.0
 script = ExtResource("1_3eadt")
@@ -22,10 +25,17 @@ maxPull = 250
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=697467859]
 texture_filter = 1
-scale = Vector2(3.0631247, 3.0631247)
-texture = ExtResource("1_dnjla")
+texture = ExtResource("2_3eadt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10439974]
-position = Vector2(-2, 2)
+position = Vector2(1.92593e-34, 1.1920929e-07)
 scale = Vector2(0.6512956, 0.6512956)
 shape = SubResource("CircleShape2D_gxb8f")
+
+[node name="gunPoint" type="Marker2D" parent="." unique_id=1801115059]
+position = Vector2(10, -8)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=678256571]
+width = 2.0
+gradient = SubResource("Gradient_gxb8f")
+texture_mode = 2

@@ -1,5 +1,10 @@
 extends RigidBody2D
 
+var bulletScene = preload("res://items/bullet.tscn")
+
+@onready var motionTrail: Line2D = $Line2D
+@onready var gunPoint = $gunPoint
+
 @export var isDragging: bool = false
 @export var dragStartPos: Vector2
 @export var multiplier: int = 50
@@ -11,9 +16,20 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				print("Left Mouse Button Pressed")
 				if global_position.distance_to(get_global_mouse_position()) < 35:
 					isDragging = true
 					dragStartPos = get_global_mouse_position()
+				else:
+					var bullet = bulletScene.instantiate()
+					bullet.player = self
+					
+					get_tree().current_scene.add_child(bullet)
+					bullet.global_position = gunPoint.global_position
+					var direction = (gunPoint.global_position - get_global_mouse_position()).normalized()
+					
+					bullet.apply_central_impulse(direction * 500)
+					
 			else:
 				if isDragging:
 					var dragVector = dragStartPos - get_global_mouse_position()
@@ -21,12 +37,31 @@ func _input(event: InputEvent) -> void:
 						dragVector = dragVector.limit_length(maxPull)
 						push = dragVector * multiplier
 					isDragging = false
+					motionTrail.clear_points()
 				
 
 func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
+	if linear_velocity.length() < 30:
+		look_at(get_global_mouse_position())
+		rotation += PI
 	if push != Vector2.ZERO:
 		apply_central_impulse(push * delta)
 		push = Vector2.ZERO
+		
+func _process(delta: float) -> void:
+	if isDragging:
+		var dragVector = dragStartPos - get_global_mouse_position()
+		var lineLength = min(dragVector.length(), maxPull)
+		
+		if lineLength >= minPull:
+			var direction = global_transform.basis_xform_inv(-dragVector.normalized())
+			motionTrail.clear_points()
+			motionTrail.add_point(Vector2.ZERO)
+			motionTrail.add_point(direction * lineLength)
+		else:
+			motionTrail.clear_points()
+	else:
+		motionTrail.clear_points()

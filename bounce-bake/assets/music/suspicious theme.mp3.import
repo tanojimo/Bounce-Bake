@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkk7dbrhjgpod"
+path="res://.godot/imported/suspicious theme.mp3-e1fbf858cd601eb0aafb7ee801de11a4.mp3str"
+
+[deps]
+
+source_file="res://assets/music/suspicious theme.mp3"
+dest_files=["res://.godot/imported/suspicious theme.mp3-e1fbf858cd601eb0aafb7ee801de11a4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

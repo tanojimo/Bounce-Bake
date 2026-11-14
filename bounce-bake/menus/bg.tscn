@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ddd3j2o0lslnw"]
+
+[ext_resource type="Texture2D" uid="uid://ds5utw8tl2ws6" path="res://assets/bg.svg" id="2_8mmno"]
+
+[sub_resource type="GDScript" id="GDScript_unrus"]
+script/source = "extends Node2D
+
+@export var speed: float = 100.0
+@export var bgWidth: float = 640.0
+
+@onready var bg1 = $Sprite2D
+@onready var bg2 = $Sprite2D2
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	bgWidth = bg1.texture.get_width() * bg1.scale.x
+	bg1.position.x -= speed * delta
+	bg2.position.x -= speed * delta
+	
+	if bg1.position.x <= -bgWidth:
+		bg1.position.x = bg2.position.x + bgWidth
+		
+	if bg2.position.x <= -bgWidth:
+		bg2.position.x = bg1.position.x + bgWidth
+"
+
+[node name="Bg" type="Node2D" unique_id=2034422179]
+script = SubResource("GDScript_unrus")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144144081]
+position = Vector2(320, 192)
+texture = ExtResource("2_8mmno")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1296610973]
+position = Vector2(960, 192)
+texture = ExtResource("2_8mmno")
