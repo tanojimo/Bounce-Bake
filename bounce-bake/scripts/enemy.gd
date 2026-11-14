@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+var bulletScene = preload("res://items/bullet.tscn")
 var deathEffect = preload("res://items/deathEffect.tscn")
+
+@onready var gunPoint = $gunPoint
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -16,3 +19,15 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 			if collider.is_in_group("bullet"):
 				collider.queue_free()
+
+
+func _on_timer_timeout() -> void:
+	print("Timer Out")
+	var bullet = bulletScene.instantiate()
+	bullet.enemy = self
+	
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = gunPoint.global_position
+	var direction = Vector2.RIGHT.rotated(global_rotation)
+	
+	bullet.apply_central_impulse(direction * 500)

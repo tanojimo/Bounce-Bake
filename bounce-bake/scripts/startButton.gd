@@ -48,6 +48,7 @@ func _on_mouse_exited() -> void:
 	
 func _on_button_down() -> void:
 	animate_font_size(pressedSize)
+	get_tree().change_scene_to_file("res://menus/levels.tscn")
 	
 func _on_button_up() -> void:
 	if get_global_rect().has_point(get_global_mouse_position()):

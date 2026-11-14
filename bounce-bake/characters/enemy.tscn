@@ -16,3 +16,12 @@ texture = ExtResource("2_nhupr")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1401719455]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_nhupr")
+
+[node name="Timer" type="Timer" parent="." unique_id=278978376]
+wait_time = 3.0
+autostart = true
+
+[node name="gunPoint" type="Marker2D" parent="." unique_id=403946873]
+position = Vector2(10, -8)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

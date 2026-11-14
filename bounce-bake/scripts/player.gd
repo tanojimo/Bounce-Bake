@@ -17,19 +17,8 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				print("Left Mouse Button Pressed")
-				if global_position.distance_to(get_global_mouse_position()) < 35:
-					isDragging = true
-					dragStartPos = get_global_mouse_position()
-				else:
-					var bullet = bulletScene.instantiate()
-					bullet.player = self
-					
-					get_tree().current_scene.add_child(bullet)
-					bullet.global_position = gunPoint.global_position
-					var direction = (gunPoint.global_position - get_global_mouse_position()).normalized()
-					
-					bullet.apply_central_impulse(direction * 500)
-					
+				isDragging = true
+				dragStartPos = get_global_mouse_position()
 			else:
 				if isDragging:
 					var dragVector = dragStartPos - get_global_mouse_position()
@@ -38,7 +27,16 @@ func _input(event: InputEvent) -> void:
 						push = dragVector * multiplier
 					isDragging = false
 					motionTrail.clear_points()
-				
+	elif event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_SPACE:
+			var bullet = bulletScene.instantiate()
+			bullet.player = self
+			
+			get_tree().current_scene.add_child(bullet)
+			bullet.global_position = gunPoint.global_position
+			var direction = (gunPoint.global_position - get_global_mouse_position()).normalized()
+			
+			bullet.apply_central_impulse(direction * 500)
 
 func _ready() -> void:
 	pass # Replace with function body.

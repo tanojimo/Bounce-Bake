@@ -129,7 +129,7 @@ texture = ExtResource("1_rrroh")
 [sub_resource type="TileSet" id="TileSet_oppr7"]
 sources/0 = SubResource("TileSetAtlasSource_3ve0a")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_afdil"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oppr7"]
 friction = 0.0
 bounce = 0.5
 
@@ -392,7 +392,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_pdukx"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_afdil")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_oppr7")
 sources/2 = SubResource("TileSetAtlasSource_60n4i")
 sources/1 = SubResource("TileSetAtlasSource_lm0ao")
 
