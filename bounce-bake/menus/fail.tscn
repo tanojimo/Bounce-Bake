@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dlik1r3y45fgj"]
+
+[ext_resource type="Script" uid="uid://bmelsdx1wxsn7" path="res://menus/button_manager.gd" id="1_63eaj"]
+[ext_resource type="FontFile" uid="uid://r0xlm71ucpoq" path="res://assets/Iceberg-Regular.ttf" id="2_5dklm"]
+[ext_resource type="Script" uid="uid://docxr3hei1vyl" path="res://scripts/startButton.gd" id="3_x2ga5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2cr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20gti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffa30"]
+
+[node name="Fail" type="Node2D" unique_id=1808814573]
+
+[node name="buttonManager" type="Control" parent="." unique_id=1438573018]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+script = ExtResource("1_63eaj")
+
+[node name="ColorRect" type="ColorRect" parent="buttonManager" unique_id=2001029637]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 65.0
+offset_right = 526.0
+offset_bottom = 272.0
+color = Color(0, 0, 0, 0.40392157)
+
+[node name="level1" type="Button" parent="buttonManager" unique_id=72957418]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 160.0
+offset_right = 410.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("2_5dklm")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q2cr8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20gti")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ffa30")
+text = "Restart"
+script = ExtResource("3_x2ga5")
+
+[node name="level2" type="Button" parent="buttonManager" unique_id=1745185961]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 210.0
+offset_right = 409.0
+offset_bottom = 258.0
+theme_override_fonts/font = ExtResource("2_5dklm")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q2cr8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20gti")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ffa30")
+text = "Quit"
+script = ExtResource("3_x2ga5")
+
+[node name="Label" type="Label" parent="buttonManager" unique_id=849208057]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 75.0
+offset_right = 569.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_5dklm")
+theme_override_font_sizes/font_size = 55
+text = "You Failed"
+
+[connection signal="button_down" from="buttonManager/level1" to="buttonManager/level1" method="_on_button_down"]
+[connection signal="button_up" from="buttonManager/level1" to="buttonManager/level1" method="_on_button_up"]
+[connection signal="mouse_entered" from="buttonManager/level1" to="buttonManager/level1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="buttonManager/level1" to="buttonManager/level1" method="_on_mouse_exited"]
+[connection signal="button_down" from="buttonManager/level2" to="buttonManager/level2" method="_on_button_down"]
+[connection signal="button_up" from="buttonManager/level2" to="buttonManager/level2" method="_on_button_up"]
+[connection signal="mouse_entered" from="buttonManager/level2" to="buttonManager/level2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="buttonManager/level2" to="buttonManager/level2" method="_on_mouse_exited"]
