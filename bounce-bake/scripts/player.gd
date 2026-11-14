@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var bulletScene = preload("res://items/bullet.tscn")
 
+@onready var motionTrail: Line2D = $Line2D
 @onready var gunPoint = $gunPoint
 
 @export var isDragging: bool = false
@@ -31,20 +32,19 @@ func _input(event: InputEvent) -> void:
 					
 			else:
 				if isDragging:
-					print("Started Dragging")
 					var dragVector = dragStartPos - get_global_mouse_position()
 					if dragVector.length() >= minPull:
 						dragVector = dragVector.limit_length(maxPull)
 						push = dragVector * multiplier
 					isDragging = false
-					print("Set the push vector: ", push)
+					motionTrail.clear_points()
 				
 
 func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	if linear_velocity.length() < 1:
+	if linear_velocity.length() < 30:
 		look_at(get_global_mouse_position())
 		rotation += PI
 	if push != Vector2.ZERO:
@@ -52,4 +52,16 @@ func _physics_process(delta: float) -> void:
 		push = Vector2.ZERO
 		
 func _process(delta: float) -> void:
-	pass
+	if isDragging:
+		var dragVector = dragStartPos - get_global_mouse_position()
+		var lineLength = min(dragVector.length(), maxPull)
+		
+		if lineLength >= minPull:
+			var direction = global_transform.basis_xform_inv(-dragVector.normalized())
+			motionTrail.clear_points()
+			motionTrail.add_point(Vector2.ZERO)
+			motionTrail.add_point(direction * lineLength)
+		else:
+			motionTrail.clear_points()
+	else:
+		motionTrail.clear_points()

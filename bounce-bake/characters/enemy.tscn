@@ -16,9 +16,3 @@ texture = ExtResource("2_nhupr")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1401719455]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_nhupr")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1793726579]
-emitting = false
-amount = 30
-one_shot = true
-explosiveness = 1.0
